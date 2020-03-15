@@ -66,8 +66,8 @@ def combin1():
         plt.savefig('comb1.png')
         plt.close()  # 这样会清楚旧图
         image_list.append(imageio.imread('comb1.png'))
-        deputy.read("comb1.png")
-    imageio.mimsave(name+'.gif', image_list, duration=1)
+        deputy.read("comb1.png",1)
+    imageio.mimsave('对比图1.gif', image_list, duration=1)
 
 def combin2():
     name="对比图2"
@@ -129,7 +129,7 @@ def combin2():
         plt.savefig('comb2.png')
         plt.close()  # 这样会清楚旧图
         image_list.append(imageio.imread('comb2.png'))
-        deputy.read("comb2.png")
+        deputy.read("comb2.png",2)
 
 
     imageio.mimsave(name+'.gif', image_list, duration=1)

@@ -10,13 +10,16 @@ import part4
 
 path ='/home/mally/图片/text'  #文件路径
 size = (640,480)            #图片的分辨率片
-fps = 1
+fps = 3
 file_path = "try"+ ".avi"  # 导出路径
 fourcc = cv2.VideoWriter_fourcc('I', '4', '2', '0')  # 不同视频编码对应不同视频格式（例：'I','4','2','0' 对应avi格式）
 video = cv2.VideoWriter(file_path, fourcc, fps, size)
 
+speed_bei=fps      #因为之前的fps为1,速度正好，现在新加了东西，故而要调速度
 def read(name,num=1):
     img=cv2.imread(name)
+    if num!=-1: num=num*speed_bei       #如果num-=-1,说明是要自己调节的加速版本
+    else:num=1
     for i in range(num):video.write(img)
 
 def picvideo():
@@ -28,7 +31,9 @@ def picvideo():
     #1.基本信号
     read("picture/3.jpg", 4)
     part1.make_dirac()
+    part1.dirac_step()
     part1.make_step_func()
+    part1.step_rope()
     part1.make_rope_func()
 
     #2.时变和时不变
